@@ -1,0 +1,12 @@
+node:
+  build: .
+  command: nodemon . | bunyan
+  environment:
+    APP_PORT: 3000
+  ports:
+    - "14130:3000"
+  volumes:
+    - "./.jshintignore:/var/www/.jshintignore"
+    - "./.jshintrc:/var/www/.jshintrc"
+    - "./lib:/var/www/lib"
+    - "./test:/var/www/test"

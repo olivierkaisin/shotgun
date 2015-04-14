@@ -1,6 +1,6 @@
 'use strict';
 
-var app = require('../Server.js'),
+var app = require('../lib'),
     request = require('supertest'),
     express = require('express'),
     fixtureApp;
