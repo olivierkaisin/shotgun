@@ -1,15 +1,18 @@
-FROM node:0.10.32
+FROM node:0.10.38
 
 ENV APP_NAME shotgun
 
-RUN apt-get update
-RUN apt-get install -y libpng12-dev libjpeg8-dev libfreetype6-dev libjasper-dev fontconfig
-RUN apt-get install -y graphicsmagick imagemagick libmagickwand-dev
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN npm i -g nodemon bunyan
 
-ADD . /var/www
+RUN apt-get update &&\
+  apt-get install -y libpng12-dev libjpeg62-turbo-dev libfreetype6-dev libjasper-dev fontconfig graphicsmagick imagemagick libmagickwand-dev &&\
+  apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 WORKDIR /var/www
 
-RUN npm install --production
+COPY ./package.json /var/www/package.json
+RUN npm install
+
+COPY ./lib /var/www/lib
 
 CMD ["npm", "start"]

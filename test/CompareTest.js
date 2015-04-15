@@ -1,12 +1,12 @@
 'use strict';
 
-var app = require('../Server.js'),
+var app = require('../lib'),
     request = require('supertest'),
     expect = require('chai').expect,
     express = require('express'),
     gm = require('gm'),
     fs = require('fs'),
-    types = require('../types.js'),
+    types = require('../lib/types.js'),
     fixtureApp;
 
 function parseToBinary(res, callback) {
