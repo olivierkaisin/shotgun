@@ -1,0 +1,21 @@
+{
+  "apps": [
+    {
+      "name": "shotgun",
+      "script": "lib/index.js",
+      "args": [],
+      "log_date_format": "YYYY-MM-DD HH:mm Z",
+      "ignore_watch": [
+        "[\\/\\\\]\\./",
+        "node_modules"
+      ],
+      "watch": false,
+      "node_args": "",
+      "cwd": "/var/www/shotgun",
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": "10000"
+      }
+    }
+  ]
+}
